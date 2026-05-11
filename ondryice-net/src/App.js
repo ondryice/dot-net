@@ -1,6 +1,18 @@
-import { Outlet } from 'react-router';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 import logo from './logo.svg';
 import './App.css';
+
+const AppRoutes = (props) => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<div>Home</div>} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 
 const App = (props) => (
   <div className="App">
@@ -22,4 +34,5 @@ const App = (props) => (
   </div>
 );
 
+ReactDOM.createRoot(document.getElementById('root')).render(<AppRoutes />);
 export default App;
